@@ -101,7 +101,7 @@ text_dict = [
     "Powa (pow wah) n.  1. Power.", 
     "Reh rehluu (reh reh loo) v.  1. Dance.", 
     "Reshee (resh ee) n.  1. Map.", 
-    "Roda (roh dah) v.  1. To eat.", 
+    "Roda (roh dah) v.  1. Eat.", 
     "Rueenee (roo ee nee) n.  1. Ruins.", 
     "Ruha (roo hah) v.  1. Hit.", 
     "Seefo (see foh) v.  1. Hurt.", 
