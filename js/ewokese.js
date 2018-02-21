@@ -171,7 +171,7 @@ function parse_dict_entry(entry) {
         if (end_index == -1) {
             end_index = entry.length;
         }
-        var def = entry.substring(index + 3, end_index).trim().toLowerCase();
+        var def = entry.substring(index + 3, end_index).trim().toLowerCase().replace(/[!.?]/g, "");
         matches = def.match(/[a-zA-Z]([ -'a-zA-Z])*/g);
         defs.push(stemmer(matches[0]));
         autocomplete.push(matches[0]);
@@ -192,10 +192,10 @@ function build_map() {
 function translate(basic) {
     basic = basic.trim();
     if (basic.length == 0) {
-        $("#result-section").hide();        
+        $("#result-section").hide();
         return;
     }
-    words = basic.toLowerCase().match(/[a-zA-Z'-]+/g);
+    words = basic.toLowerCase().match(/\S+/g);
     translated_sentence = "";
     n = 3;
     definitions = [];
