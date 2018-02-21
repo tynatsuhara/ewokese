@@ -209,7 +209,7 @@ function translate(basic) {
             if (phrase in basic_to_ewok) {
                 definition = basic_to_ewok[phrase];
                 definitions.push(definition);
-                if (translated_sentence.length > 0) {
+                if (translated_sentence.length > 0 && !translated_sentence.match(/[.!?]$/g)) {
                     definition = definition.toLowerCase();
                 }
                 translated_sentence += " " + definition.substring(0, definition.indexOf("(")).trim();
