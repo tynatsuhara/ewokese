@@ -172,9 +172,11 @@ function parse_dict_entry(entry) {
             end_index = entry.length;
         }
         var def = entry.substring(index + 3, end_index).trim().toLowerCase().replace(/[!.?]/g, "");
-        matches = def.match(/[a-zA-Z]([ -'a-zA-Z])*/g);
-        defs.push(stemmer(matches[0]));
-        autocomplete.push(matches[0]);
+        // matches = def.match(/[a-zA-Z][ -'a-zA-Z]*/g);
+        if (autocomplete.indexOf(def) == -1) {
+            defs.push(def);
+            autocomplete.push(def);
+        }
     }
     return defs;
 }
@@ -205,7 +207,7 @@ function translate(basic) {
             for (ni = 0; ni < n_size; ni++) {
                 n_gram += " " + words[i + ni];
             }
-            phrase = stemmer(n_gram.trim());
+            phrase = n_gram.trim();
             if (phrase in basic_to_ewok) {
                 definition = basic_to_ewok[phrase];
                 definitions.push(definition);
